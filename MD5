@@ -1,0 +1,15 @@
+da81f87db2951b871359a4b6066a8e74 *DESCRIPTION
+b5b2e20c75457107297b566908b8c29d *NAMESPACE
+fde868b9cb22222cc5a7b4f05611cd07 *R/misc_doc.R
+e72e350cd27d99d24dea0f8fe51c1dad *build/vignette.rds
+4397cf1adbb3313fcf210e94268f090a *data/GE2014.rda
+9fae57d0d19e0e828d21a68331b9bc6a *data/Locations2014.rda
+69238ab85359fa7b07a6618a1bd2a0dc *inst/doc/README.R
+134ebc448094a79c966bbf036c01a335 *inst/doc/README.Rmd
+b8ab53ddc202826826a0df8eec45fab0 *inst/doc/README.html
+9311dda2db862ab36ab068108bbdfe0e *man/GE2014.Rd
+3b037344793e88a600b0b263fa73a332 *man/Locations2014.Rd
+5be8f81299854946d232d3de2c95e374 *tests/testthat.R
+9a0d86d048ec5a4dc5ada9edf7572e6b *tests/testthat/rotorua2014.R
+143fd97954e21d32251a729933099e7c *tests/testthat/test_totals_v_published2014.R
+134ebc448094a79c966bbf036c01a335 *vignettes/README.Rmd
