@@ -2,16 +2,13 @@
 title: "nzelect - convenient access to New Zealand election-related data"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{nzcensus - convenient access to the New Zealand census meshblock dataset}
+  %\VignetteIndexEntry{nzelect - convenient access to New Zealand election-related data}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
 
 ## Introduction
-`nzelect` primarily provides convenient access to **New Zealand election results**.  So far only the results aggregated by voting place of the 2014 General Election are provided, but the intention is to extend this further:
-
-* both backwards and forwards in time for additional elections and possibly referenda; and 
-* incorporate individual level data from the [New Zealand Election study](http://www.nzes.org/).
+`nzelect` primarily provides convenient access to **New Zealand election results**.  So far only the results aggregated by voting place of the 2014 General Election are provided, but the intention is to extend this further both backwards and forwards in time for additional elections, opinion polls and possibly referenda. 
 
 Source data of the voting place aggregated results comes from the [New Zealand Electoral Commission](http://www.electionresults.govt.nz/).
 
@@ -164,7 +161,8 @@ Opinion poll data from 2002 onwards has been tidied and collated into a single d
 ```{r fig.width = 8}
 library(forcats)
 polls %>%
-filter(MidDate > as.Date("2014-11-20") & !is.na(VotingIntention)) %>%
+    filter(MidDate > as.Date("2014-11-20") & !is.na(VotingIntention)) %>%
+    filter(Party %in% c("National", "Labour", "Green", "NZ First")) %>%
     mutate(Party = fct_reorder(Party, VotingIntention, .desc = TRUE),
            Party = fct_drop(Party)) %>%
     ggplot(aes(x = MidDate, y = VotingIntention, colour = Party, linetype = Pollster)) +
@@ -214,7 +212,7 @@ The example below shows the `weight_polls` function in action in combination wit
 electorates <- c(1,0,0,27,0,1,41,1,1)
 
 polls %>%
-    filter(MidDate > "2014-12-30" & MidDate < "2017-10-1") %>%
+    filter(MidDate > "2014-12-30" & MidDate < "2017-10-1" & Party != "TOP") %>%
     mutate(wt_p = weight_polls(MidDate, method = "pundit"),
            wt_c = weight_polls(MidDate, method = "curia")) %>%
     group_by(Party) %>%
