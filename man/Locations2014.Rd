@@ -35,6 +35,8 @@ Voting places for the New Zealand 2014 general election
   \item \code{AU2014}.  Number of the Area Unit in which the voting place is physically located.
   \item \code{MB2014}.  Number of the Mesh Block in which the voting place is physically located.
 }
+\code{Locations2014} is deprecated; please use \code{voting_places} instead - it has locations back to 
+2008 and is the one we will update in future.
 }
 \seealso{
 \code{\link{GE2014}}
